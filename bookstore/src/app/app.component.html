@@ -1,5 +1,50 @@
-<button class="btn btn-blue">
-  Button
-</button>
+<main>
+  <router-outlet></router-outlet>
 
-<router-outlet></router-outlet>
+  <section class="home-container">
+    <aside class="home-sidebar">
+      <h1 class="home-sidebar_logo">
+        <a routerLink="/" routerLinkActive="active">Book store</a>
+      </h1>
+      <nav class="home-sidebar_nav">
+        <li class="home-sidebar_nav__item active">
+          <a
+            class="home-sidebar_nav__link"
+            routerLink="/"
+            routerLinkActive="active"
+            >All</a
+          >
+        </li>
+        <li class="home-sidebar_nav__item">
+          <a
+            class="home-sidebar_nav__link"
+            routerLink="/"
+            routerLinkActive="active"
+            >New</a
+          >
+        </li>
+        <li class="home-sidebar_nav__item">
+          <a
+            class="home-sidebar_nav__link"
+            routerLink="/"
+            routerLinkActive="active"
+            >Discover</a
+          >
+        </li>
+        <li class="home-sidebar_nav__item">
+          <a
+            class="home-sidebar_nav__link"
+            routerLink="/"
+            routerLinkActive="active"
+            >Popular</a
+          >
+        </li>
+      </nav>
+      <button class="home-sidebar_button">24 Saved</button>
+    </aside>
+
+    <article class="home-main_container">
+      <section class="home-main"></section>
+    </article>
+  </section>
+</main>
