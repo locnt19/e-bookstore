@@ -1,50 +1,74 @@
 <main>
   <router-outlet></router-outlet>
 
-  <section class="home-container">
-    <aside class="home-sidebar">
-      <h1 class="home-sidebar_logo">
-        <a routerLink="/" routerLinkActive="active">Book store</a>
-      </h1>
-      <nav class="home-sidebar_nav">
-        <li class="home-sidebar_nav__item active">
-          <a
-            class="home-sidebar_nav__link"
-            routerLink="/"
-            routerLinkActive="active"
-            >All</a
-          >
-        </li>
-        <li class="home-sidebar_nav__item">
-          <a
-            class="home-sidebar_nav__link"
-            routerLink="/"
-            routerLinkActive="active"
-            >New</a
-          >
-        </li>
-        <li class="home-sidebar_nav__item">
-          <a
-            class="home-sidebar_nav__link"
-            routerLink="/"
-            routerLinkActive="active"
-            >Discover</a
-          >
-        </li>
-        <li class="home-sidebar_nav__item">
-          <a
-            class="home-sidebar_nav__link"
-            routerLink="/"
-            routerLinkActive="active"
-            >Popular</a
-          >
-        </li>
-      </nav>
-      <button class="home-sidebar_button">24 Saved</button>
-    </aside>
+  <aside class="main_sidebar">
+    <h1 class="main_sidebar_logo">
+      <a routerLink="/" routerLinkActive="active">Book store</a>
+    </h1>
+    <nav class="main_sidebar_nav">
+      <li class="main_sidebar_nav__item active">
+        <a
+          class="main_sidebar_nav__link"
+          routerLink="/"
+          routerLinkActive="active"
+          >All</a
+        >
+      </li>
+      <li class="main_sidebar_nav__item">
+        <a
+          class="main_sidebar_nav__link"
+          routerLink="/"
+          routerLinkActive="active"
+          >New</a
+        >
+      </li>
+      <li class="main_sidebar_nav__item">
+        <a
+          class="main_sidebar_nav__link"
+          routerLink="/"
+          routerLinkActive="active"
+          >Discover</a
+        >
+      </li>
+      <li class="main_sidebar_nav__item">
+        <a
+          class="main_sidebar_nav__link"
+          routerLink="/"
+          routerLinkActive="active"
+          >Popular</a
+        >
+      </li>
+    </nav>
+    <button class="main_sidebar_button">24 Saved</button>
+  </aside>
 
-    <article class="home-main_container">
-      <section class="home-main"></section>
+  <section class="main_content_container">
+    <article class="main_content">
+      <section class="main_content_left">
+        <form class="search_box">
+          <button class="search_box_button">
+            <i class="fas fa-search"></i>
+          </button>
+          <input
+            type="text"
+            class="search_box_input"
+            placeholder="Search anything here..."
+          />
+        </form>
+      </section>
+      <button class="main_content_toggle__sidebar">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <section class="main_content_right">
+        <article class="account_controls_container">
+          <section class="account_controls_notification">
+            <i class="far fa-bell"></i>
+          </section>
+          <section class="account_controls_avatar">
+            <img src="./assets/user_avatar.jpg" alt="user_avatar.jpg" />
+          </section>
+        </article>
+      </section>
     </article>
   </section>
 </main>
