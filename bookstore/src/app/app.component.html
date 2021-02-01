@@ -1,74 +1,62 @@
-<main>
+<main class="page_container">
   <router-outlet></router-outlet>
 
-  <aside class="main_sidebar">
-    <h1 class="main_sidebar_logo">
-      <a routerLink="/" routerLinkActive="active">Book store</a>
-    </h1>
-    <nav class="main_sidebar_nav">
-      <li class="main_sidebar_nav__item active">
-        <a
-          class="main_sidebar_nav__link"
-          routerLink="/"
-          routerLinkActive="active"
-          >All</a
-        >
-      </li>
-      <li class="main_sidebar_nav__item">
-        <a
-          class="main_sidebar_nav__link"
-          routerLink="/"
-          routerLinkActive="active"
-          >New</a
-        >
-      </li>
-      <li class="main_sidebar_nav__item">
-        <a
-          class="main_sidebar_nav__link"
-          routerLink="/"
-          routerLinkActive="active"
-          >Discover</a
-        >
-      </li>
-      <li class="main_sidebar_nav__item">
-        <a
-          class="main_sidebar_nav__link"
-          routerLink="/"
-          routerLinkActive="active"
-          >Popular</a
-        >
-      </li>
-    </nav>
-    <button class="main_sidebar_button">24 Saved</button>
-  </aside>
-
-  <section class="main_content_container">
-    <article class="main_content">
-      <section class="main_content_left">
-        <form class="search_box">
-          <button class="search_box_button">
+  <div class="page_content">
+    <div class="grid gird-cols-1 md:grid-cols-3">
+      <button class="sidebar_toggle">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <section class="md:col-span-2 bg-lightWhite py-8 px-12">
+        <form class="searchbox">
+          <button class="searchbox_button">
             <i class="fas fa-search"></i>
           </button>
           <input
             type="text"
-            class="search_box_input"
+            class="searchbox_input"
             placeholder="Search anything here..."
           />
         </form>
+        <div class="page_title mt-10">Book details</div>
+        <div class="flex mt-8">
+          <div class="book_cover flex-inital">
+            <img
+              src="../assets/books/red-white-royal-blue.jpg"
+              alt="red-white-royal-blue.jpg"
+            />
+          </div>
+          <div class="flex-1 px-12">
+            <div class="book_rated">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <span class="book_rated__point">5.0</span>
+            </div>
+            <div class="book_name">Red, White & Royal Blue</div>
+            <div class="book_desc">
+              When his mother became President, Alex Claremont-Diaz was promptly
+              cast as the American equivalent of a young royal.
+              <a class="page_link" routerLink="/">Read more</a>
+            </div>
+            <div class="mt-6">
+              <button class="button_secondary">ADD TO CART +</button>
+              <button class="button_primary ml-4">BUY NOW</button>
+            </div>
+          </div>
+        </div>
       </section>
-      <button class="main_content_toggle__sidebar">
-        <i class="fas fa-chevron-left"></i>
-      </button>
-      <section class="main_content_right">
-        <article class="account_controls_container">
-          <section class="account_controls_notification">
+      <section class="bg-lightPink py-8 px-12">
+        <div class="account_controls">
+          <div class="account_notif">
             <i class="far fa-bell"></i>
-          </section>
-          <section class="account_controls_avatar">
+          </div>
+          <div class="account_avatar">
             <img src="./assets/user_avatar.jpg" alt="user_avatar.jpg" />
-          </section>
-        </article>
+          </div>
+        </div>
       </section>
-    </article>
-  </section>
+    </div>
+  </div>
 </main>

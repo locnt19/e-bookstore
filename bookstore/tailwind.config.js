@@ -16,6 +16,9 @@ module.exports = {
       boxShadow: {
         light:
           "0 20px 25px -5px rgba(0, 0, 0, 0.01), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+      },
+      letterSpacing: {
+        widest: ".15em"
       }
     }
   },
