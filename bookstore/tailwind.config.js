@@ -10,6 +10,7 @@ module.exports = {
       },
       colors: {
         salmon: "#f65d4e",
+        lightSalmon: "#f1c7c5",
         lightWhite: "#faf9fd",
         lightPink: "#ffe9e9"
       },
@@ -23,7 +24,11 @@ module.exports = {
     }
   },
   variants: {
-    extend: { fontWeight: ["hover", "focus"] }
+    extend: {
+      fontWeight: ["hover", "focus"],
+      padding: ["hover", "focus"],
+      transform: ["hover", "focus"]
+    }
   },
   plugins: []
 };
