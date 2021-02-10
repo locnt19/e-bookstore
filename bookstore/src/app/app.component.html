@@ -1,7 +1,37 @@
 <main class="page_container">
-  <router-outlet></router-outlet>
+  <section>
+    <aside class="sidebar">
+      <h1 class="sidebar_logo">
+        <a routerLink="/" routerLinkActive="active">Book store</a>
+      </h1>
+      <nav class="sidebar_nav">
+        <li class="sidebar_nav__item active">
+          <a class="sidebar_nav__link" routerLink="/" routerLinkActive="active"
+            >All</a
+          >
+        </li>
+        <li class="sidebar_nav__item">
+          <a class="sidebar_nav__link" routerLink="/" routerLinkActive="active"
+            >New</a
+          >
+        </li>
+        <li class="sidebar_nav__item">
+          <a class="sidebar_nav__link" routerLink="/" routerLinkActive="active"
+            >Discover</a
+          >
+        </li>
+        <li class="sidebar_nav__item">
+          <a class="sidebar_nav__link" routerLink="/" routerLinkActive="active"
+            >Popular</a
+          >
+        </li>
+      </nav>
+      <button class="sidebar_button">24 Saved</button>
+    </aside>
+  </section>
 
   <div class="page_content">
+    <router-outlet></router-outlet>
     <div class="grid gird-cols-1 md:grid-cols-3">
       <button class="sidebar_toggle">
         <i class="fas fa-chevron-left"></i>
