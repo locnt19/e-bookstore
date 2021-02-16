@@ -1,29 +1,21 @@
 <main class="page_container">
-  <section>
-    <aside class="sidebar">
+  <section class="sidebar_container" #sidebarContainer>
+    <aside class="sidebar" #sidebar>
       <h1 class="sidebar_logo">
         <a routerLink="/" routerLinkActive="active">Book store</a>
       </h1>
       <nav class="sidebar_nav">
         <li class="sidebar_nav__item active">
-          <a class="sidebar_nav__link" routerLink="/" routerLinkActive="active"
-            >All</a
-          >
+          <a class="sidebar_nav__link" routerLink="/" routerLinkActive="active">All</a>
         </li>
         <li class="sidebar_nav__item">
-          <a class="sidebar_nav__link" routerLink="/" routerLinkActive="active"
-            >New</a
-          >
+          <a class="sidebar_nav__link" routerLink="/" routerLinkActive="active">New</a>
         </li>
         <li class="sidebar_nav__item">
-          <a class="sidebar_nav__link" routerLink="/" routerLinkActive="active"
-            >Discover</a
-          >
+          <a class="sidebar_nav__link" routerLink="/" routerLinkActive="active">Discover</a>
         </li>
         <li class="sidebar_nav__item">
-          <a class="sidebar_nav__link" routerLink="/" routerLinkActive="active"
-            >Popular</a
-          >
+          <a class="sidebar_nav__link" routerLink="/" routerLinkActive="active">Popular</a>
         </li>
       </nav>
       <button class="sidebar_button">24 Saved</button>
@@ -33,7 +25,7 @@
   <div class="page_content">
     <router-outlet></router-outlet>
     <div class="grid gird-cols-1 md:grid-cols-3">
-      <button class="sidebar_toggle">
+      <button class="sidebar_toggle" #sidebarButtonToggle>
         <i class="fas fa-chevron-left"></i>
       </button>
       <section class="md:col-span-2 bg-lightWhite py-8 px-12">
@@ -41,19 +33,12 @@
           <button class="searchbox_button">
             <i class="fas fa-search"></i>
           </button>
-          <input
-            type="text"
-            class="searchbox_input"
-            placeholder="Search anything here..."
-          />
+          <input type="text" class="searchbox_input" placeholder="Search anything here..." />
         </form>
         <div class="page_title">Book details</div>
         <div class="flex mt-8">
           <div class="book_cover flex-inital">
-            <img
-              src="../assets/books/red-white-royal-blue.jpg"
-              alt="red-white-royal-blue.jpg"
-            />
+            <img src="../assets/books/red-white-royal-blue.jpg" alt="red-white-royal-blue.jpg" />
           </div>
           <div class="flex-1 px-12">
             <div class="book_rated">
@@ -66,8 +51,8 @@
             </div>
             <div class="book_name">Red, White & Royal Blue</div>
             <div class="book_desc">
-              When his mother became President, Alex Claremont-Diaz was promptly
-              cast as the American equivalent of a young royal.
+              When his mother became President, Alex Claremont-Diaz was promptly cast as the American
+              equivalent of a young royal.
               <a class="page_link" routerLink="/">Read more</a>
             </div>
             <div class="mt-6">
@@ -110,8 +95,8 @@
               </div>
             </div>
             <div class="mt-4">
-              Casey McQuiston is the New York Times bestselling author of Red,
-              White & Royal Blue, as well as a pie enthusiast.
+              Casey McQuiston is the New York Times bestselling author of Red, White & Royal Blue, as well as
+              a pie enthusiast.
             </div>
           </div>
         </div>
@@ -154,24 +139,11 @@
               </button>
             </div>
             <div class="dropdown_menu">
-              <div
-                class="py-1"
-                role="menu"
-                aria-orientation="vertical"
-                aria-labelledby="options-menu"
-              >
-                <a routerLink="/" class="dropdown_menu__item" role="menuitem"
-                  >Account settings</a
-                >
-                <a routerLink="/" class="dropdown_menu__item" role="menuitem"
-                  >Support</a
-                >
-                <a routerLink="/" class="dropdown_menu__item" role="menuitem"
-                  >License</a
-                >
-                <a routerLink="/" class="dropdown_menu__item" role="menuitem"
-                  >Sign out</a
-                >
+              <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                <a routerLink="/" class="dropdown_menu__item" role="menuitem">Account settings</a>
+                <a routerLink="/" class="dropdown_menu__item" role="menuitem">Support</a>
+                <a routerLink="/" class="dropdown_menu__item" role="menuitem">License</a>
+                <a routerLink="/" class="dropdown_menu__item" role="menuitem">Sign out</a>
               </div>
             </div>
           </div>
@@ -179,10 +151,7 @@
         <div class="mt-2">
           <div class="book_card">
             <a routerLink="/" class="book_cover__small">
-              <img
-                src="../assets/books/red-white-royal-blue.jpg"
-                alt="red-white-royal-blue.jpg"
-              />
+              <img src="../assets/books/red-white-royal-blue.jpg" alt="red-white-royal-blue.jpg" />
             </a>
             <div>
               <div class="page_subheading">Casey McQuiston</div>
@@ -204,10 +173,7 @@
           </div>
           <div class="book_card">
             <a routerLink="/" class="book_cover__small">
-              <img
-                src="../assets/books/red-white-royal-blue.jpg"
-                alt="red-white-royal-blue.jpg"
-              />
+              <img src="../assets/books/red-white-royal-blue.jpg" alt="red-white-royal-blue.jpg" />
             </a>
             <div>
               <div class="page_subheading">Casey McQuiston</div>
@@ -229,10 +195,7 @@
           </div>
           <div class="book_card">
             <a routerLink="/" class="book_cover__small">
-              <img
-                src="../assets/books/red-white-royal-blue.jpg"
-                alt="red-white-royal-blue.jpg"
-              />
+              <img src="../assets/books/red-white-royal-blue.jpg" alt="red-white-royal-blue.jpg" />
             </a>
             <div>
               <div class="page_subheading">Casey McQuiston</div>
@@ -254,10 +217,7 @@
           </div>
           <div class="book_card">
             <a routerLink="/" class="book_cover__small">
-              <img
-                src="../assets/books/red-white-royal-blue.jpg"
-                alt="red-white-royal-blue.jpg"
-              />
+              <img src="../assets/books/red-white-royal-blue.jpg" alt="red-white-royal-blue.jpg" />
             </a>
             <div>
               <div class="page_subheading">Casey McQuiston</div>
@@ -279,9 +239,7 @@
           </div>
         </div>
         <div class="text-center mt-3">
-          <a routerLink="/" class="button_secondary button_secondary__noborder">
-            VIEW ALL +
-          </a>
+          <a routerLink="/" class="button_secondary button_secondary__noborder"> VIEW ALL + </a>
         </div>
       </section>
     </div>
