@@ -1,4 +1,5 @@
 {
   "trailingComma": "none",
-  "arrowParens": "always"
+  "arrowParens": "always",
+  "printWidth": 110
 }
