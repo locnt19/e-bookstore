@@ -2,22 +2,35 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@import "_variable.scss";
+
 .page {
   &_container {
-    @apply grid min-h-screen bg-salmon p-6 transition-all duration-300;
-    grid-template-columns: auto 1fr;
+    @apply min-h-screen bg-salmon p-2 transition-all duration-300 lg:grid lg:grid-cols-auto--1fr lg:p-6;
   }
 
   &_content {
-    @apply relative min-h-screen rounded-6xl overflow-hidden;
+    @apply relative min-h-screen lg:rounded-6xl lg:overflow-hidden;
+
+    @media screen and (min-width: $screen-lg) {
+      background: linear-gradient(
+        90deg,
+        $lightWhite calc(100% * 2 / 3),
+        $lightPink calc(100% * 1 / 3)
+      );
+    }
   }
 
+  &_title,
+  &_subtitle {
+    @apply font-semibold text-salmon mb-3;
+  }
   &_title {
-    @apply font-semibold text-salmon text-xl mt-10;
+    @apply text-xl;
   }
 
   &_subtitle {
-    @apply font-semibold text-salmon text-lg mb-3;
+    @apply text-lg;
   }
 
   &_link {
@@ -25,7 +38,7 @@
   }
 
   &_card {
-    @apply bg-white rounded-2xl shadow-light p-6;
+    @apply bg-white rounded-2xl shadow-light p-4 lg:p-6;
   }
 
   &_heading {
@@ -40,7 +53,7 @@
 .button {
   &_primary,
   &_secondary {
-    @apply inline-block border border-salmon font-semibold px-4 py-2 rounded-full tracking-widest transition focus:outline-none focus:ring focus:ring-salmon focus:ring-opacity-30 hover:bg-salmon hover:bg-opacity-30 hover:text-white;
+    @apply inline-block border border-salmon font-semibold py-2 px-3 rounded-full tracking-widest transition-all focus:outline-none focus:ring focus:ring-salmon focus:ring-opacity-30 hover:bg-salmon hover:bg-opacity-30 hover:text-white;
   }
 
   &_primary {
@@ -83,7 +96,7 @@
 
   &_avatar,
   &_avatar__noborder {
-    @apply w-12 h-12 border-4 border-white rounded-2xl overflow-hidden ml-6;
+    @apply w-10 h-10 border-4 border-white rounded-xl overflow-hidden lg:w-12 lg:h-12 lg:ml-6 lg:rounded-2xl;
 
     img {
       @apply w-full h-full;
@@ -96,16 +109,24 @@
 }
 
 .book {
+  &_container,
+  &_container--similar {
+    @apply lg:shadow-none lg:bg-transparent lg:p-0;
+  }
+  &_container--similar {
+    @apply bg-lightPink;
+  }
+
   &_cover {
-    @apply w-1/3 rounded-4xl overflow-hidden;
+    @apply inline rounded-4xl max-w-3/4 max-h-96 lg:max-w-full;
 
     &__small {
-      @apply w-20 rounded-xl overflow-hidden;
+      @apply rounded-xl w-16 lg:w-20;
     }
   }
 
   &_rated {
-    @apply text-yellow-400;
+    @apply text-yellow-400 mt-2 lg:mt-0;
 
     &__point {
       @apply text-gray-400 ml-1;
@@ -117,16 +138,15 @@
   }
 
   &_name {
-    @apply text-5xl font-semibold mt-3;
+    @apply text-3xl font-semibold mt-2 lg:text-5xl lg:mt-3;
   }
 
   &_desc {
-    @apply break-words mt-6;
+    @apply break-words mt-2 lg:mt-6;
   }
 
   &_card {
-    @apply grid gap-3 items-center relative transform transition rounded-2xl p-4 hover:bg-white hover:shadow-light hover:-translate-x-6;
-    grid-template-columns: auto 1fr auto;
+    @apply grid grid-cols-auto--1fr--auto gap-3 items-center relative transform transition rounded-2xl py-4 lg:px-4 lg:hover:bg-white lg:hover:shadow-light lg:hover:-translate-x-6;
 
     &__name {
       overflow: hidden;
@@ -143,7 +163,7 @@
 }
 
 .sidebar {
-  @apply w-60 h-screen overflow-auto fixed top-0 left-6 flex flex-auto flex-col py-6 pr-6 transition-all duration-500;
+  @apply w-60 h-screen overflow-auto bg-salmon shadow-2xl fixed top-0 left-0 z-50 transition-all duration-500 p-2 lg:left-6 lg:p-6 lg:pl-0 lg:bg-transparent lg:shadow-none;
 
   &_container {
     @apply w-60 transition-all duration-500;
@@ -158,7 +178,7 @@
   }
 
   &_toggle {
-    @apply w-12 h-12 bg-white text-salmon text-xs	rounded-2xl absolute top-8 left-2/3 transform -translate-x-1/2 focus:outline-none focus:ring focus:ring-salmon focus:ring-opacity-30 shadow-light;
+    @apply w-10 h-10 bg-white text-salmon text-xs rounded-xl shadow-light focus:outline-none focus:ring focus:ring-salmon focus:ring-opacity-30 lg:w-12 lg:h-12 lg:rounded-2xl lg:transform lg:-translate-x-1/2;
   }
 
   &_logo {
@@ -166,7 +186,7 @@
   }
 
   &_nav {
-    @apply list-none mt-4;
+    @apply list-none lg:mt-4;
 
     &__item {
       @apply relative text-white text-opacity-50 truncate pl-4 py-4 transition;
@@ -190,7 +210,7 @@
   }
 
   &_button {
-    @apply bg-white text-white text-opacity-75 bg-opacity-20 rounded-lg mt-12 py-3 transition focus:outline-none hover:bg-opacity-40 hover:text-opacity-100;
+    @apply w-full bg-white text-white text-opacity-75 bg-opacity-20 rounded-xl mt-8 p-3 transition focus:outline-none hover:bg-opacity-40 hover:text-opacity-100 lg:rounded-2xl lg:mt-12;
   }
 }
 
@@ -198,28 +218,10 @@
   @apply relative;
 
   &_button {
-    @apply w-12 h-12 absolute top-0	left-0 text-gray-300 focus:outline-none;
+    @apply w-10 h-10 absolute top-0 left-0 text-gray-300 focus:outline-none lg:w-12 lg:h-12;
   }
 
   &_input {
-    @apply w-full h-12 pl-12 pr-4 bg-white rounded-2xl placeholder-gray-300 focus:outline-none focus:ring focus:ring-salmon focus:ring-opacity-30 shadow-light;
-  }
-}
-
-.account_controls {
-  &_container {
-    @apply flex items-center justify-end;
-  }
-
-  &_notification {
-    @apply text-salmon text-2xl;
-  }
-
-  &_avatar {
-    @apply w-12 h-12 border-4 border-white rounded-2xl overflow-hidden ml-6;
-
-    img {
-      @apply w-full h-full;
-    }
+    @apply w-full h-10 pl-10 pr-4 bg-white rounded-xl placeholder-gray-300 shadow-light focus:outline-none focus:ring focus:ring-salmon focus:ring-opacity-30 lg:h-12 lg:pl-12 lg:rounded-2xl;
   }
 }

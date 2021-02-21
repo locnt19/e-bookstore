@@ -15,11 +15,22 @@ module.exports = {
         lightPink: "#ffe9e9"
       },
       boxShadow: {
-        light:
-          "0 20px 25px -5px rgba(0, 0, 0, 0.01), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+        light: "0 20px 25px -5px rgba(0, 0, 0, 0.01), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
       },
       letterSpacing: {
         widest: ".15em"
+      },
+      gridTemplateColumns: {
+        "1fr--auto": "1fr auto",
+        "auto--1fr": "auto 1fr",
+        "auto--1fr--auto": "auto 1fr auto",
+        "2/3--auto-1fr": "calc(100% * 2 / 3) auto 1fr",
+        "2/3--1/3": "calc(100% * 2 / 3) calc(100% * 1 / 3)"
+      },
+      maxWidth: {
+        "1/4": "25%",
+        "1/2": "50%",
+        "3/4": "75%"
       }
     }
   },

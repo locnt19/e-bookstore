@@ -1,4 +1,13 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from "@angular/core";
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  QueryList,
+  ViewChild,
+  ViewChildren
+} from "@angular/core";
 import { fromEvent, Subject } from "rxjs";
 import { debounceTime, takeUntil } from "rxjs/operators";
 
@@ -7,20 +16,31 @@ import { debounceTime, takeUntil } from "rxjs/operators";
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.scss"]
 })
-export class AppComponent implements AfterViewInit, OnDestroy {
+export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild("sidebar", { static: false, read: ElementRef }) sidebar: ElementRef;
   @ViewChild("sidebarContainer", { static: false, read: ElementRef }) sidebarContainer: ElementRef;
-  @ViewChild("sidebarButtonToggle", { static: false, read: ElementRef }) sidebarButtonToggle: ElementRef;
+  @ViewChildren("sidebarButton") sidebarButton: QueryList<ElementRef>;
 
   private _destroy$: Subject<void> = new Subject<void>();
-  title = "e-bookstore";
+
+  hideSidebarOnSmallScreen: boolean = false;
 
   constructor() {}
 
+  ngOnInit() {
+    if (window.innerWidth < 1024) {
+      this.hideSidebarOnSmallScreen = true;
+    }
+  }
+
   ngAfterViewInit() {
-    fromEvent(this.sidebarButtonToggle.nativeElement, "click")
-      .pipe(debounceTime(300), takeUntil(this._destroy$))
-      .subscribe((data) => {
+    const sidebarButtonNativeElement = this.sidebarButton.map(button => {
+      return button.nativeElement;
+    });
+
+    fromEvent(sidebarButtonNativeElement, "click")
+      .pipe(debounceTime(200), takeUntil(this._destroy$))
+      .subscribe(data => {
         this.sidebar.nativeElement.classList.toggle("sidebar_collapsed");
         this.sidebarContainer.nativeElement.classList.toggle("collapsed");
       });

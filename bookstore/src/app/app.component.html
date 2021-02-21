@@ -1,6 +1,13 @@
 <main class="page_container">
-  <section class="sidebar_container" #sidebarContainer>
-    <aside class="sidebar" #sidebar>
+  <section
+    class="sidebar_container"
+    [ngClass]="{ collapsed: hideSidebarOnSmallScreen }"
+    #sidebarContainer
+  >
+    <aside class="sidebar" [ngClass]="{ sidebar_collapsed: hideSidebarOnSmallScreen }" #sidebar>
+      <button class="sidebar_toggle lg:hidden" style="transform: none" #sidebarButton>
+        <i class="fas fa-times"></i>
+      </button>
       <h1 class="sidebar_logo">
         <a routerLink="/" routerLinkActive="active">Book store</a>
       </h1>
@@ -22,49 +29,74 @@
     </aside>
   </section>
 
-  <div class="page_content">
+  <section class="page_content">
     <router-outlet></router-outlet>
-    <div class="grid gird-cols-1 md:grid-cols-3">
-      <button class="sidebar_toggle" #sidebarButtonToggle>
-        <i class="fas fa-chevron-left"></i>
-      </button>
-      <section class="md:col-span-2 bg-lightWhite py-8 px-12">
+    <div class="grid grid-cols-auto--1fr--auto gap-2 lg:grid-cols-2/3--auto-1fr lg:gap-0 lg:py-8">
+      <section class="lg:row-start-1 lg:col-start-2">
+        <button class="sidebar_toggle" #sidebarButton>
+          <i class="fas fa-chevron-left hidden lg:inline-block"></i>
+          <i class="fas fa-ellipsis-v lg:hidden"></i>
+        </button>
+      </section>
+      <section class="lg:row-start-1 lg:col-start-1 lg:px-12">
         <form class="searchbox">
           <button class="searchbox_button">
             <i class="fas fa-search"></i>
           </button>
           <input type="text" class="searchbox_input" placeholder="Search anything here..." />
         </form>
-        <div class="page_title">Book details</div>
-        <div class="flex mt-8">
-          <div class="book_cover flex-inital">
-            <img src="../assets/books/red-white-royal-blue.jpg" alt="red-white-royal-blue.jpg" />
+      </section>
+      <section class="lg:px-12">
+        <div class="account_controls">
+          <div class="account_notif hidden lg:block">
+            <i class="far fa-bell"></i>
           </div>
-          <div class="flex-1 px-12">
-            <div class="book_rated">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star no-rate"></i>
-              <span class="book_rated__point">5.0</span>
+          <div class="account_avatar">
+            <img src="./assets/user_avatar.jpg" alt="user_avatar.jpg" />
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="lg:grid lg:grid-cols-2/3--1/3 mt-10 lg:mt-0">
+      <section class="md:grid md:grid-cols-2/3--1/3 lg:block lg:px-12">
+        <div class="page_card book_container">
+          <div class="page_title" style="margin-bottom: 0">Book details</div>
+          <div class="lg:grid lg:grid-cols-auto--1fr lg:gap-8 lg:mt-8">
+            <div class="text-center lg:text-left">
+              <img
+                class="book_cover"
+                src="../assets/books/red-white-royal-blue.jpg"
+                alt="red-white-royal-blue.jpg"
+              />
             </div>
-            <div class="book_name">Red, White & Royal Blue</div>
-            <div class="book_desc">
-              When his mother became President, Alex Claremont-Diaz was promptly cast as the American
-              equivalent of a young royal.
-              <a class="page_link" routerLink="/">Read more</a>
-            </div>
-            <div class="mt-6">
-              <button class="button_secondary">ADD TO CART +</button>
-              <button class="button_primary ml-4">BUY NOW</button>
+            <div>
+              <div class="book_rated text-center lg:text-left">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star no-rate"></i>
+                <span class="book_rated__point">5.0</span>
+              </div>
+              <div class="book_name">Red, White & Royal Blue</div>
+              <div class="book_desc">
+                When his mother became President, Alex Claremont-Diaz was promptly cast as the
+                American equivalent of a young royal.
+                <a class="page_link" routerLink="/">Read more</a>
+              </div>
+              <div class="text-center mt-4 lg:text-left lg:mt-6">
+                <button class="button_secondary m-1 lg:m-0">ADD TO CART +</button>
+                <button class="button_primary m-1 lg:m-0 lg:ml-4">BUY NOW</button>
+              </div>
             </div>
           </div>
         </div>
-        <div class="grid gird-cols-1 md:grid-cols-2 gap-12 mt-8">
+        <div
+          class="grid grid-cols-1 gap-2 mt-2 md:mt-0 md:pl-2 lg:grid-cols-2 lg:gap-8 lg:mt-8 lg:pl-0"
+        >
           <div class="page_card">
             <div class="page_subtitle">Details</div>
-            <div class="grid gird-cols-1 sm:grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <div class="page_subheading">Paperback</div>
                 <div class="page_heading">432 pages</div>
@@ -95,153 +127,92 @@
               </div>
             </div>
             <div class="mt-4">
-              Casey McQuiston is the New York Times bestselling author of Red, White & Royal Blue, as well as
-              a pie enthusiast.
+              Casey McQuiston is the New York Times bestselling author of Red, White & Royal Blue,
+              as well as a pie enthusiast.
             </div>
           </div>
         </div>
       </section>
-      <section class="bg-lightPink py-8 px-12">
-        <div class="account_controls">
-          <div class="account_notif">
-            <i class="far fa-bell"></i>
-          </div>
-          <div class="account_avatar">
-            <img src="./assets/user_avatar.jpg" alt="user_avatar.jpg" />
-          </div>
-        </div>
-        <div class="flex items-center justify-between mt-10">
-          <div class="page_title" style="margin-top: 0">Similar Books</div>
-          <div class="dropdown">
-            <div>
-              <button
-                type="button"
-                class="dropdown_button"
-                id="options-menu"
-                aria-haspopup="true"
-                aria-expanded="true"
-              >
-                Newest
-                <!-- Heroicon name: solid/chevron-down -->
-                <svg
-                  class="ml-1 h-5 w-5"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  aria-hidden="true"
+      <section class="lg:px-8 lg:pb-8">
+        <div class="page_card book_container--similar mt-10 lg:mt-0">
+          <div class="flex items-center justify-between lg:px-4">
+            <div class="page_title" style="margin-bottom: 0">Similar Books</div>
+            <div class="dropdown">
+              <div>
+                <button
+                  type="button"
+                  class="dropdown_button"
+                  id="options-menu"
+                  aria-haspopup="true"
+                  aria-expanded="true"
                 >
-                  <path
-                    fill-rule="evenodd"
-                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                    clip-rule="evenodd"
+                  Newest
+                  <svg
+                    class="ml-1 h-5 w-5"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div class="dropdown_menu">
+                <div
+                  class="py-1"
+                  role="menu"
+                  aria-orientation="vertical"
+                  aria-labelledby="options-menu"
+                >
+                  <a routerLink="/" class="dropdown_menu__item" role="menuitem">Account settings</a>
+                  <a routerLink="/" class="dropdown_menu__item" role="menuitem">Support</a>
+                  <a routerLink="/" class="dropdown_menu__item" role="menuitem">License</a>
+                  <a routerLink="/" class="dropdown_menu__item" role="menuitem">Sign out</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-2">
+            <ng-container *ngFor="let item of [0, 1, 2, 3]">
+              <div class="book_card">
+                <a routerLink="/">
+                  <img
+                    class="book_cover__small"
+                    src="../assets/books/red-white-royal-blue.jpg"
+                    alt="red-white-royal-blue.jpg"
                   />
-                </svg>
-              </button>
-            </div>
-            <div class="dropdown_menu">
-              <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                <a routerLink="/" class="dropdown_menu__item" role="menuitem">Account settings</a>
-                <a routerLink="/" class="dropdown_menu__item" role="menuitem">Support</a>
-                <a routerLink="/" class="dropdown_menu__item" role="menuitem">License</a>
-                <a routerLink="/" class="dropdown_menu__item" role="menuitem">Sign out</a>
-              </div>
-            </div>
+                </a>
+                <div>
+                  <div class="page_subheading">Casey McQuiston</div>
+                  <a routerLink="/" class="page_heading book_card__name"
+                    >Red, White & Royal Blue Red, White & Royal Blue</a
+                  >
+                  <div class="book_rated lg:mt-3">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star no-rate"></i>
+                    <span class="book_rated__point">5.0</span>
+                  </div>
+                </div>
+                <a routerLink="/" class="book_card__button">
+                  <i class="fas fa-chevron-right"></i>
+                </a></div
+            ></ng-container>
           </div>
-        </div>
-        <div class="mt-2">
-          <div class="book_card">
-            <a routerLink="/" class="book_cover__small">
-              <img src="../assets/books/red-white-royal-blue.jpg" alt="red-white-royal-blue.jpg" />
-            </a>
-            <div>
-              <div class="page_subheading">Casey McQuiston</div>
-              <a routerLink="/" class="page_heading book_card__name"
-                >Red, White & Royal Blue Red, White & Royal Blue</a
-              >
-              <div class="book_rated mt-3">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star no-rate"></i>
-                <span class="book_rated__point">5.0</span>
-              </div>
-            </div>
-            <a routerLink="/" class="book_card__button">
-              <i class="fas fa-chevron-right"></i>
+          <div class="text-center mt-2">
+            <a routerLink="/" role="button" class="button_secondary button_secondary__noborder">
+              VIEW ALL +
             </a>
           </div>
-          <div class="book_card">
-            <a routerLink="/" class="book_cover__small">
-              <img src="../assets/books/red-white-royal-blue.jpg" alt="red-white-royal-blue.jpg" />
-            </a>
-            <div>
-              <div class="page_subheading">Casey McQuiston</div>
-              <a routerLink="/" class="page_heading book_card__name"
-                >Red, White & Royal Blue Red, White & Royal Blue</a
-              >
-              <div class="book_rated mt-3">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star no-rate"></i>
-                <span class="book_rated__point">5.0</span>
-              </div>
-            </div>
-            <a routerLink="/" class="book_card__button">
-              <i class="fas fa-chevron-right"></i>
-            </a>
-          </div>
-          <div class="book_card">
-            <a routerLink="/" class="book_cover__small">
-              <img src="../assets/books/red-white-royal-blue.jpg" alt="red-white-royal-blue.jpg" />
-            </a>
-            <div>
-              <div class="page_subheading">Casey McQuiston</div>
-              <a routerLink="/" class="page_heading book_card__name"
-                >Red, White & Royal Blue Red, White & Royal Blue</a
-              >
-              <div class="book_rated mt-3">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star no-rate"></i>
-                <span class="book_rated__point">5.0</span>
-              </div>
-            </div>
-            <a routerLink="/" class="book_card__button">
-              <i class="fas fa-chevron-right"></i>
-            </a>
-          </div>
-          <div class="book_card">
-            <a routerLink="/" class="book_cover__small">
-              <img src="../assets/books/red-white-royal-blue.jpg" alt="red-white-royal-blue.jpg" />
-            </a>
-            <div>
-              <div class="page_subheading">Casey McQuiston</div>
-              <a routerLink="/" class="page_heading book_card__name"
-                >Red, White & Royal Blue Red, White & Royal Blue</a
-              >
-              <div class="book_rated mt-3">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star no-rate"></i>
-                <span class="book_rated__point">5.0</span>
-              </div>
-            </div>
-            <a routerLink="/" class="book_card__button">
-              <i class="fas fa-chevron-right"></i>
-            </a>
-          </div>
-        </div>
-        <div class="text-center mt-3">
-          <a routerLink="/" class="button_secondary button_secondary__noborder"> VIEW ALL + </a>
         </div>
       </section>
     </div>
-  </div>
+  </section>
 </main>
