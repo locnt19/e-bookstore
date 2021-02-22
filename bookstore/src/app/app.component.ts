@@ -10,6 +10,7 @@ import {
 } from "@angular/core";
 import { fromEvent, Subject } from "rxjs";
 import { debounceTime, takeUntil } from "rxjs/operators";
+import { Dropdown } from "./interfaces/dropdown";
 
 @Component({
   selector: "app-root",
@@ -20,12 +21,11 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild("sidebar", { static: false, read: ElementRef }) sidebar: ElementRef;
   @ViewChild("sidebarContainer", { static: false, read: ElementRef }) sidebarContainer: ElementRef;
   @ViewChildren("sidebarButton") sidebarButton: QueryList<ElementRef>;
-  @ViewChild("dropdownButton", { static: false, read: ElementRef }) dropdownButton: ElementRef;
-  @ViewChild("dropdownMenu", { static: false, read: ElementRef }) dropdownMenu: ElementRef;
 
   private _destroy$: Subject<void> = new Subject<void>();
 
   hideSidebarOnSmallScreen: boolean = false;
+  dropdownList: Array<Dropdown>;
 
   constructor() {}
 
@@ -33,6 +33,13 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     if (window.innerWidth < 1024) {
       this.hideSidebarOnSmallScreen = true;
     }
+
+    this.dropdownList = [
+      { title: "Account settings", route: "/" },
+      { title: "Support", route: "/" },
+      { title: "License", route: "/" },
+      { title: "Sign out", route: "/" }
+    ];
   }
 
   ngAfterViewInit() {
@@ -45,12 +52,6 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
       .subscribe(data => {
         this.sidebar.nativeElement.classList.toggle("sidebar_collapsed");
         this.sidebarContainer.nativeElement.classList.toggle("collapsed");
-      });
-
-    fromEvent(this.dropdownButton.nativeElement, "click")
-      .pipe(takeUntil(this._destroy$))
-      .subscribe(data => {
-        this.dropdownMenu.nativeElement.classList.toggle("open");
       });
   }
 

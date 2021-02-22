@@ -1,0 +1,21 @@
+<section class="dropdown">
+  <button type="button" class="dropdown_button" (click)="toggleDropdown()">
+    <span>{{ title }}</span>
+    <i class="fas fa-chevron-down text-xs ml-1"></i>
+  </button>
+
+  <div
+    class="dropdown_menu"
+    [ngClass]="{ 'z-10': !zIndexHighest, 'z-50': zIndexHighest, open: openDropdown }"
+  >
+    <div class="py-1" role="menu">
+      <a
+        *ngFor="let item of itemList"
+        [routerLink]="item.route"
+        class="dropdown_menu__item"
+        role="menuitem"
+        >{{ item.title }}</a
+      >
+    </div>
+  </div>
+</section>

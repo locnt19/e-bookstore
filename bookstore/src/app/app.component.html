@@ -138,34 +138,8 @@
         <div class="page_card book_container--similar mt-10 lg:mt-0">
           <div class="flex items-center justify-between lg:px-4">
             <div class="page_title" style="margin-bottom: 0">Similar Books</div>
-            <div class="dropdown">
-              <div>
-                <button
-                  type="button"
-                  class="dropdown_button"
-                  id="options-menu"
-                  aria-haspopup="true"
-                  aria-expanded="true"
-                  #dropdownButton
-                >
-                  <span>Newest</span>
-                  <i class="fas fa-chevron-down text-xs ml-1"></i>
-                </button>
-              </div>
-              <div class="dropdown_menu" #dropdownMenu>
-                <div
-                  class="py-1"
-                  role="menu"
-                  aria-orientation="vertical"
-                  aria-labelledby="options-menu"
-                >
-                  <a routerLink="/" class="dropdown_menu__item" role="menuitem">Account settings</a>
-                  <a routerLink="/" class="dropdown_menu__item" role="menuitem">Support</a>
-                  <a routerLink="/" class="dropdown_menu__item" role="menuitem">License</a>
-                  <a routerLink="/" class="dropdown_menu__item" role="menuitem">Sign out</a>
-                </div>
-              </div>
-            </div>
+            <ui-dropdown [title]="'Newest'" [zIndexHighest]="true" [itemList]="dropdownList">
+            </ui-dropdown>
           </div>
           <div class="mt-2">
             <ng-container *ngFor="let item of [0, 1, 2, 3]">
