@@ -31,6 +31,12 @@ module.exports = {
         "1/4": "25%",
         "1/2": "50%",
         "3/4": "75%"
+      },
+      lineClamp: {
+        7: "7",
+        8: "8",
+        9: "9",
+        10: "10"
       }
     }
   },
@@ -38,8 +44,9 @@ module.exports = {
     extend: {
       fontWeight: ["hover", "focus"],
       padding: ["hover", "focus"],
-      transform: ["hover", "focus"]
+      transform: ["hover", "focus"],
+      lineClamp: ["hover", "responsive"]
     }
   },
-  plugins: []
+  plugins: [require("@tailwindcss/line-clamp")]
 };
