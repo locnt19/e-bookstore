@@ -119,7 +119,11 @@
   }
 
   &_notif {
-    @apply text-salmon text-2xl;
+    @apply relative text-salmon text-2xl;
+
+    &__dot {
+      @apply flex absolute top-0 right-0 w-2 h-2 bg-salmon rounded-full ring-2 ring-lightPink;
+    }
   }
 
   &_avatar,
