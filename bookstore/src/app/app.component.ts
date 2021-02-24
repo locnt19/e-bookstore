@@ -15,7 +15,7 @@ import { Dropdown } from "./interfaces/dropdown";
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.scss"]
+  styles: []
 })
 export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild("sidebar", { static: false, read: ElementRef }) sidebar: ElementRef;

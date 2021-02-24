@@ -4,7 +4,7 @@ import { Dropdown } from "~/app/interfaces/dropdown";
 @Component({
   selector: "ui-dropdown",
   templateUrl: "./dropdown.component.html",
-  styleUrls: ["./dropdown.component.scss"]
+  styles: []
 })
 export class DropdownComponent implements OnInit {
   @Input() title: string;
