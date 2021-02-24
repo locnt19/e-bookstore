@@ -1,0 +1,49 @@
+<section class="account_controls">
+  <section class="dropdown">
+    <div
+      class="account_notif hidden lg:flex"
+      (click)="toggleNotifList = !toggleNotifList"
+    >
+      <i class="far fa-bell"></i>
+      <div class="account_notif__dot"></div>
+    </div>
+
+    <div class="dropdown_menu z-50" [ngClass]="{ open: toggleNotifList }">
+      <div class="py-1" role="menu">
+        <ng-container *ngFor="let item of notifList">
+          <a
+            [routerLink]="item.route"
+            class="dropdown_menu__item"
+            role="menuitem"
+            >{{ item.title }}</a
+          ></ng-container
+        >
+      </div>
+    </div>
+  </section>
+  <section class="dropdown lg:ml-6">
+    <div
+      class="account_avatar"
+      (click)="togglecontrolList = !togglecontrolList"
+    >
+      <img src="./assets/user_avatar.jpg" alt="user_avatar.jpg" />
+    </div>
+
+    <div class="dropdown_menu z-50" [ngClass]="{ open: togglecontrolList }">
+      <div class="py-1" role="menu">
+        <ng-container *ngFor="let item of controlList">
+          <a
+            [routerLink]="item.route"
+            class="dropdown_menu__item"
+            [ngClass]="{
+              hidden: item.hideOnMobile && onSmallScreen,
+              'lg:hidden': item.hideOnDesktop && !onSmallScreen
+            }"
+            role="menuitem"
+            >{{ item.title }}</a
+          ></ng-container
+        >
+      </div>
+    </div>
+  </section>
+</section>

@@ -4,8 +4,16 @@
     [ngClass]="{ collapsed: hideSidebarOnSmallScreen }"
     #sidebarContainer
   >
-    <aside class="sidebar" [ngClass]="{ sidebar_collapsed: hideSidebarOnSmallScreen }" #sidebar>
-      <button class="sidebar_toggle lg:hidden" style="transform: none" #sidebarButton>
+    <aside
+      class="sidebar"
+      [ngClass]="{ sidebar_collapsed: hideSidebarOnSmallScreen }"
+      #sidebar
+    >
+      <button
+        class="sidebar_toggle lg:hidden"
+        style="transform: none;"
+        #sidebarButton
+      >
         <i class="fas fa-times"></i>
       </button>
       <h1 class="sidebar_logo">
@@ -13,16 +21,24 @@
       </h1>
       <nav class="sidebar_nav">
         <li class="sidebar_nav__item active">
-          <a class="sidebar_nav__link" routerLink="/" routerLinkActive="active">All</a>
+          <a class="sidebar_nav__link" routerLink="/" routerLinkActive="active"
+            >All</a
+          >
         </li>
         <li class="sidebar_nav__item">
-          <a class="sidebar_nav__link" routerLink="/" routerLinkActive="active">New</a>
+          <a class="sidebar_nav__link" routerLink="/" routerLinkActive="active"
+            >New</a
+          >
         </li>
         <li class="sidebar_nav__item">
-          <a class="sidebar_nav__link" routerLink="/" routerLinkActive="active">Discover</a>
+          <a class="sidebar_nav__link" routerLink="/" routerLinkActive="active"
+            >Discover</a
+          >
         </li>
         <li class="sidebar_nav__item">
-          <a class="sidebar_nav__link" routerLink="/" routerLinkActive="active">Popular</a>
+          <a class="sidebar_nav__link" routerLink="/" routerLinkActive="active"
+            >Popular</a
+          >
         </li>
       </nav>
       <button class="sidebar_button">24 Saved</button>
@@ -31,7 +47,9 @@
 
   <section class="page_content">
     <router-outlet></router-outlet>
-    <div class="grid grid-cols-auto--1fr--auto gap-2 lg:grid-cols-2/3--auto-1fr lg:gap-0 lg:py-8">
+    <div
+      class="grid grid-cols-auto--1fr--auto gap-2 lg:grid-cols-2/3--auto-1fr lg:gap-0 lg:py-8"
+    >
       <section class="lg:row-start-1 lg:col-start-2">
         <button class="sidebar_toggle" #sidebarButton>
           <i class="fas fa-chevron-left hidden lg:inline-block"></i>
@@ -43,25 +61,21 @@
           <button class="searchbox_button">
             <i class="fas fa-search"></i>
           </button>
-          <input type="text" class="searchbox_input" placeholder="Search anything here..." />
+          <input
+            type="text"
+            class="searchbox_input"
+            placeholder="Search anything here..."
+          />
         </form>
       </section>
       <section class="lg:px-12">
-        <div class="account_controls">
-          <div class="account_notif hidden lg:flex">
-            <i class="far fa-bell"></i>
-            <div class="account_notif__dot"></div>
-          </div>
-          <div class="account_avatar">
-            <img src="./assets/user_avatar.jpg" alt="user_avatar.jpg" />
-          </div>
-        </div>
+        <ui-account-control></ui-account-control>
       </section>
     </div>
     <div class="lg:grid lg:grid-cols-2/3--1/3 mt-10 lg:mt-0">
       <section class="md:grid md:grid-cols-2/3--1/3 lg:block lg:px-12">
         <div class="page_card book_container">
-          <div class="page_title" style="margin-bottom: 0">Book details</div>
+          <div class="page_title" style="margin-bottom: 0;">Book details</div>
           <div class="lg:grid lg:grid-cols-auto--1fr lg:gap-8 lg:mt-8">
             <div class="text-center lg:text-left">
               <img
@@ -81,13 +95,17 @@
               </div>
               <div class="book_name">Red, White & Royal Blue</div>
               <div class="book_desc">
-                When his mother became President, Alex Claremont-Diaz was promptly cast as the
-                American equivalent of a young royal.
+                When his mother became President, Alex Claremont-Diaz was
+                promptly cast as the American equivalent of a young royal.
                 <a class="page_link" routerLink="/">Read more</a>
               </div>
               <div class="text-center mt-4 lg:text-left lg:mt-6">
-                <button class="button_secondary m-1 lg:m-0">ADD TO CART +</button>
-                <button class="button_primary m-1 lg:m-0 lg:ml-4">BUY NOW</button>
+                <button class="button_secondary m-1 lg:m-0">
+                  ADD TO CART +
+                </button>
+                <button class="button_primary m-1 lg:m-0 lg:ml-4">
+                  BUY NOW
+                </button>
               </div>
             </div>
           </div>
@@ -128,8 +146,8 @@
               </div>
             </div>
             <div class="mt-4">
-              Casey McQuiston is the New York Times bestselling author of Red, White & Royal Blue,
-              as well as a pie enthusiast.
+              Casey McQuiston is the New York Times bestselling author of Red,
+              White & Royal Blue, as well as a pie enthusiast.
             </div>
           </div>
         </div>
@@ -137,9 +155,13 @@
       <section class="lg:px-8 lg:pb-8">
         <div class="page_card book_container--similar mt-10 lg:mt-0">
           <div class="flex items-center justify-between lg:px-4">
-            <div class="page_title" style="margin-bottom: 0">Similar Books</div>
-            <ui-dropdown [title]="'Newest'" [zIndexHighest]="true" [itemList]="dropdownList">
-            </ui-dropdown>
+            <div class="page_title" style="margin-bottom: 0;">
+              Similar Books
+            </div>
+            <ui-dropdown
+              [title]="'Newest'"
+              [itemList]="dropdownList"
+            ></ui-dropdown>
           </div>
           <div class="mt-2">
             <ng-container *ngFor="let item of [0, 1, 2, 3]">
@@ -171,7 +193,11 @@
             ></ng-container>
           </div>
           <div class="text-center mt-2">
-            <a routerLink="/" role="button" class="button_secondary button_secondary__noborder">
+            <a
+              routerLink="/"
+              role="button"
+              class="button_secondary button_secondary__noborder"
+            >
               VIEW ALL +
             </a>
           </div>

@@ -4,11 +4,13 @@ import { NgModule } from "@angular/core";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { DropdownComponent } from "./components/dropdown/dropdown.component";
+import { AccountControlComponent } from './components/account-control/account-control.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DropdownComponent
+    DropdownComponent,
+    AccountControlComponent
   ],
   imports: [
     BrowserModule,
