@@ -4,6 +4,28 @@
 
 @import "_variable.scss";
 
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes zoomOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
 .page {
   &_container {
     @apply min-h-screen bg-salmon p-2 transition-all duration-300 lg:grid lg:grid-cols-auto--1fr lg:p-6;
@@ -69,6 +91,28 @@
   }
 }
 
+.dropdown {
+  @apply relative inline-block text-left cursor-pointer;
+
+  &_button {
+    @apply inline-flex justify-center items-center w-full rounded text-sm text-gray-500 focus:outline-none focus:ring focus:ring-salmon focus:ring-opacity-30;
+  }
+
+  &_menu {
+    @apply origin-top-right absolute right-0 mt-2 w-52 rounded-md shadow-light bg-white ring-1 ring-black ring-opacity-5 transition-all opacity-0 invisible;
+    animation: zoomOut $transition-duration;
+
+    &.open {
+      @apply visible opacity-100;
+      animation: zoomIn $transition-duration;
+    }
+
+    &__item {
+      @apply block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900;
+    }
+  }
+}
+
 .account {
   &_controls {
     @apply flex items-center justify-end;
@@ -84,7 +128,7 @@
 
   &_avatar,
   &_avatar__noborder {
-    @apply w-10 h-10 border-4 border-white rounded-xl overflow-hidden lg:w-12 lg:h-12 lg:ml-6 lg:rounded-2xl;
+    @apply w-10 h-10 border-4 border-white rounded-xl overflow-hidden lg:w-12 lg:h-12 lg:rounded-2xl;
 
     img {
       @apply w-full h-full;
@@ -92,7 +136,7 @@
   }
 
   &_avatar__noborder {
-    @apply border-0 ml-0 mr-3;
+    @apply border-0 mr-3;
   }
 }
 
