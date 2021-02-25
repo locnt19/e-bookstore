@@ -1,57 +1,12 @@
 <main class="page_container">
-  <section
-    class="sidebar_container"
-    [ngClass]="{ collapsed: hideSidebarOnSmallScreen }"
-    #sidebarContainer
-  >
-    <aside
-      class="sidebar"
-      [ngClass]="{ sidebar_collapsed: hideSidebarOnSmallScreen }"
-      #sidebar
-    >
-      <button
-        class="sidebar_toggle lg:hidden"
-        style="transform: none;"
-        #sidebarButton
-      >
-        <i class="fas fa-times"></i>
-      </button>
-      <h1 class="sidebar_logo">
-        <a routerLink="/" routerLinkActive="active">Book store</a>
-      </h1>
-      <nav class="sidebar_nav">
-        <li class="sidebar_nav__item active">
-          <a class="sidebar_nav__link" routerLink="/" routerLinkActive="active"
-            >All</a
-          >
-        </li>
-        <li class="sidebar_nav__item">
-          <a class="sidebar_nav__link" routerLink="/" routerLinkActive="active"
-            >New</a
-          >
-        </li>
-        <li class="sidebar_nav__item">
-          <a class="sidebar_nav__link" routerLink="/" routerLinkActive="active"
-            >Discover</a
-          >
-        </li>
-        <li class="sidebar_nav__item">
-          <a class="sidebar_nav__link" routerLink="/" routerLinkActive="active"
-            >Popular</a
-          >
-        </li>
-      </nav>
-      <button class="sidebar_button">24 Saved</button>
-    </aside>
-  </section>
-
+  <ui-sidebar></ui-sidebar>
   <section class="page_content">
     <router-outlet></router-outlet>
     <div
       class="grid grid-cols-auto--1fr--auto gap-2 lg:grid-cols-2/3--auto-1fr lg:gap-0 lg:py-8"
     >
       <section class="lg:row-start-1 lg:col-start-2">
-        <button class="sidebar_toggle" #sidebarButton>
+        <button class="sidebar_toggle" (click)="sidebarService.toggleSidebar()">
           <i class="fas fa-chevron-left hidden lg:inline-block"></i>
           <i class="fas fa-ellipsis-v lg:hidden"></i>
         </button>

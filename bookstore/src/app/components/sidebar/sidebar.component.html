@@ -1,0 +1,43 @@
+<section
+  class="sidebar_container"
+  [ngClass]="{ collapsed: sidebarService.sidebarCollapsed }"
+>
+  <aside
+    class="sidebar"
+    [ngClass]="{ sidebar_collapsed: sidebarService.sidebarCollapsed }"
+  >
+    <button
+      class="sidebar_toggle lg:hidden"
+      style="transform: none;"
+      (click)="sidebarService.toggleSidebar()"
+    >
+      <i class="fas fa-times"></i>
+    </button>
+    <h1 class="sidebar_logo">
+      <a routerLink="/" routerLinkActive="active">Book store</a>
+    </h1>
+    <nav class="sidebar_nav">
+      <li class="sidebar_nav__item active">
+        <a class="sidebar_nav__link" routerLink="/" routerLinkActive="active"
+          >All</a
+        >
+      </li>
+      <li class="sidebar_nav__item">
+        <a class="sidebar_nav__link" routerLink="/" routerLinkActive="active"
+          >New</a
+        >
+      </li>
+      <li class="sidebar_nav__item">
+        <a class="sidebar_nav__link" routerLink="/" routerLinkActive="active"
+          >Discover</a
+        >
+      </li>
+      <li class="sidebar_nav__item">
+        <a class="sidebar_nav__link" routerLink="/" routerLinkActive="active"
+          >Popular</a
+        >
+      </li>
+    </nav>
+    <button class="sidebar_button">24 Saved</button>
+  </aside>
+</section>
