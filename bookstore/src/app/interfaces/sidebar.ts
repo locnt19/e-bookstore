@@ -1,6 +1,6 @@
-export interface AccountControl {
+export interface Sidebar {
   id: string;
-  title: string;
+  label: string;
   route: string;
   hideOnDesktop: boolean;
   hideOnMobile: boolean;

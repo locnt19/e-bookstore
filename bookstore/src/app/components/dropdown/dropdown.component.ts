@@ -7,16 +7,15 @@ import { Dropdown } from "~/app/interfaces/dropdown";
   styles: []
 })
 export class DropdownComponent implements OnInit {
-  @Input() title: string;
-  @Input() openDropdown: boolean;
   @Input() zIndexHighest: boolean;
   @Input() itemList: Array<Dropdown>;
+  toggle: boolean;
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  public toggleDropdown() {
-    this.openDropdown = !this.openDropdown;
+  toggleDropdown() {
+    this.toggle = !this.toggle;
   }
 }

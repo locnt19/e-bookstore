@@ -1,4 +1,5 @@
 export interface Dropdown {
-  title: string;
+  id: string;
+  label: string;
   route: string;
 }

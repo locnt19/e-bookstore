@@ -10,13 +10,12 @@
 
     <div class="dropdown_menu z-50" [ngClass]="{ open: toggleNotifList }">
       <div class="py-1" role="menu">
-        <ng-container *ngFor="let item of notifList">
-          <a
-            [routerLink]="item.route"
-            class="dropdown_menu__item"
-            role="menuitem"
-            >{{ item.title }}</a
-          ></ng-container
+        <a
+          *ngFor="let item of notifList"
+          class="dropdown_menu__item"
+          [routerLink]="item.route"
+          role="menuitem"
+          >{{ item.title }}</a
         >
       </div>
     </div>
@@ -31,17 +30,16 @@
 
     <div class="dropdown_menu z-50" [ngClass]="{ open: togglecontrolList }">
       <div class="py-1" role="menu">
-        <ng-container *ngFor="let item of controlList">
-          <a
-            [routerLink]="item.route"
-            class="dropdown_menu__item"
-            [ngClass]="{
-              hidden: item.hideOnMobile && onSmallScreen,
-              'lg:hidden': item.hideOnDesktop && !onSmallScreen
-            }"
-            role="menuitem"
-            >{{ item.title }}</a
-          ></ng-container
+        <a
+          class="dropdown_menu__item"
+          *ngFor="let item of controlList"
+          [routerLink]="item.route"
+          [ngClass]="{
+            hidden: item.hideOnMobile && onSmallScreen,
+            'lg:hidden': item.hideOnDesktop && !onSmallScreen
+          }"
+          role="menuitem"
+          >{{ item.title }}</a
         >
       </div>
     </div>

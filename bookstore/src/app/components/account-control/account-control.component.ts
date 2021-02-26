@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
+import { CONFIG_DEFAULT } from "~/app/config-default";
 import { AccountControl } from "~/app/interfaces/account-control";
+import { UtilService } from "~/app/services/util.service";
 
 @Component({
   selector: "ui-account-control",
@@ -13,36 +15,10 @@ export class AccountControlComponent implements OnInit {
   togglecontrolList: boolean = false;
   toggleNotifList: boolean = false;
 
-  constructor() {}
+  constructor(private _util: UtilService) {}
 
   ngOnInit(): void {
-    this.onSmallScreen = window.innerWidth < 1024;
-
-    this.controlList = this.notifList = [
-      {
-        title: "Profile",
-        route: "/",
-        hideOnMobile: false,
-        hideOnDesktop: false
-      },
-      {
-        title: "Notifications",
-        route: "/",
-        hideOnMobile: false,
-        hideOnDesktop: true
-      },
-      {
-        title: "Account settings",
-        route: "/",
-        hideOnMobile: false,
-        hideOnDesktop: false
-      },
-      {
-        title: "Sign out",
-        route: "/",
-        hideOnMobile: false,
-        hideOnDesktop: false
-      }
-    ];
+    this.onSmallScreen = this._util.onSmallScreen();
+    this.controlList = this.notifList = CONFIG_DEFAULT.accountControls;
   }
 }
