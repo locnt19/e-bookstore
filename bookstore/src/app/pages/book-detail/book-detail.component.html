@@ -1,0 +1,129 @@
+<div class="lg:grid lg:grid-cols-2/3--1/3 mt-10 lg:mt-0">
+  <section class="md:grid md:grid-cols-2/3--1/3 lg:block lg:px-12">
+    <div class="page_card book_container">
+      <div class="page_title" style="margin-bottom: 0;">Book details</div>
+      <div class="lg:grid lg:grid-cols-auto--1fr lg:gap-8 lg:mt-8">
+        <div class="text-center lg:text-left">
+          <img
+            class="book_cover"
+            src="assets/books/red-white-royal-blue.jpg"
+            alt="red-white-royal-blue.jpg"
+          />
+        </div>
+        <div>
+          <div class="book_rated text-center lg:text-left">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star no-rate"></i>
+            <span class="book_rated__point">5.0</span>
+          </div>
+          <div class="book_name">Red, White & Royal Blue</div>
+          <div class="book_desc">
+            When his mother became President, Alex Claremont-Diaz was promptly
+            cast as the American equivalent of a young royal.
+            <a class="page_link" routerLink="/">Read more</a>
+          </div>
+          <div class="text-center mt-4 lg:text-left lg:mt-6">
+            <button class="button_secondary m-1 lg:m-0">
+              ADD TO CART +
+            </button>
+            <button class="button_primary m-1 lg:m-0 lg:ml-4">
+              BUY NOW
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="grid grid-cols-1 gap-2 mt-2 md:mt-0 md:pl-2 lg:grid-cols-2 lg:gap-8 lg:mt-8 lg:pl-0"
+    >
+      <div class="page_card">
+        <div class="page_subtitle">Details</div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <div class="page_subheading">Paperback</div>
+            <div class="page_heading">432 pages</div>
+          </div>
+          <div>
+            <div class="page_subheading">Language</div>
+            <div class="page_heading">English</div>
+          </div>
+          <div>
+            <div class="page_subheading">Publisher</div>
+            <div class="page_heading">Griffin, 2019</div>
+          </div>
+          <div>
+            <div class="page_subheading">Weight</div>
+            <div class="page_heading">12.8 ounces</div>
+          </div>
+        </div>
+      </div>
+      <div class="page_card">
+        <div class="page_subtitle">Author</div>
+        <div class="flex items-center">
+          <div class="account_avatar__noborder">
+            <img src="./assets/user_avatar.jpg" alt="user_avatar.jpg" />
+          </div>
+          <div>
+            <div class="page_subheading">Brooklyn, New York</div>
+            <div class="page_heading">Casey McQuiston</div>
+          </div>
+        </div>
+        <div class="mt-4">
+          Casey McQuiston is the New York Times bestselling author of Red, White
+          & Royal Blue, as well as a pie enthusiast.
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="lg:px-8 lg:pb-8">
+    <div class="page_card book_container--similar mt-10 lg:mt-0">
+      <div class="flex items-center justify-between lg:px-4">
+        <div class="page_title" style="margin-bottom: 0;">
+          Similar Books
+        </div>
+        <ui-dropdown [itemList]="dropdownList"></ui-dropdown>
+      </div>
+      <div class="mt-2">
+        <ng-container *ngFor="let item of [0, 1, 2, 3]">
+          <div class="book_card">
+            <a routerLink="/">
+              <img
+                class="book_cover__small"
+                src="../assets/books/red-white-royal-blue.jpg"
+                alt="red-white-royal-blue.jpg"
+              />
+            </a>
+            <div>
+              <div class="page_subheading">Casey McQuiston</div>
+              <a routerLink="/" class="page_heading book_card__name"
+                >Red, White & Royal Blue Red, White & Royal Blue</a
+              >
+              <div class="book_rated lg:mt-3">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star no-rate"></i>
+                <span class="book_rated__point">5.0</span>
+              </div>
+            </div>
+            <a routerLink="/" class="book_card__button">
+              <i class="fas fa-chevron-right"></i>
+            </a></div
+        ></ng-container>
+      </div>
+      <div class="text-center mt-2">
+        <a
+          routerLink="/"
+          role="button"
+          class="button_secondary button_secondary__noborder"
+        >
+          VIEW ALL +
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
