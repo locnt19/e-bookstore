@@ -1,5 +1,5 @@
 module.exports = {
-  purge: ["./src/**/*.{html,ts}"],
+  purge: { enabled: true, content: ["./src/**/*.{html,ts}"] },
   important: true,
   darkMode: false,
   theme: {
@@ -16,7 +16,8 @@ module.exports = {
         lightPink: "#ffe9e9"
       },
       boxShadow: {
-        light: "0 20px 25px -5px rgba(0, 0, 0, 0.01), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+        light:
+          "0 20px 25px -5px rgba(0, 0, 0, 0.01), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
       },
       letterSpacing: {
         widest: ".15em"
