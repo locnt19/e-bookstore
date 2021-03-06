@@ -24,9 +24,11 @@ export class AppComponent implements OnInit, OnDestroy {
       takeUntil(this._destroy$)
     );
 
-    this._pageDefaultLayout = [routingMaps.HOME].map(route => {
-      return "/" + route;
-    });
+    this._pageDefaultLayout = [routingMaps.ROOT, routingMaps.HOME].map(
+      route => {
+        return "/" + route;
+      }
+    );
   }
 
   ngOnInit() {
