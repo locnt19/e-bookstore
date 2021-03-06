@@ -154,7 +154,7 @@
   }
 
   &_cover {
-    @apply inline rounded-4xl max-w-3/4 max-h-96 lg:max-w-full;
+    @apply inline rounded-4xl max-w-3/4 max-h-80 lg:max-w-full xl:max-h-96;
 
     &__small {
       @apply rounded-xl w-16 lg:w-20;
