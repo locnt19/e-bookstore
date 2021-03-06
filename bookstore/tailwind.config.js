@@ -29,6 +29,9 @@ module.exports = {
         "2/3--auto-1fr": "calc(100% * 2 / 3) auto 1fr",
         "2/3--1/3": "calc(100% * 2 / 3) calc(100% * 1 / 3)"
       },
+      minWidth: {
+        "64": "16rem"
+      },
       maxWidth: {
         "1/4": "25%",
         "1/2": "50%",
