@@ -1,6 +1,6 @@
 <main class="page_container">
   <ui-sidebar></ui-sidebar>
-  <section class="page_content">
+  <section class="page_content" [ngClass]="{ default: isDefaultLayout }">
     <div
       class="grid grid-cols-auto--1fr--auto gap-2 lg:grid-cols-2/3--auto-1fr lg:gap-0 lg:py-8"
     >
