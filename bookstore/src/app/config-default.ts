@@ -72,5 +72,27 @@ export const CONFIG_DEFAULT = {
       label: "Alphabet",
       route: routingMaps.ROOT
     }
+  ],
+  notification: [
+    {
+      id: "e8b43730-ee1a-4e8a-8897-e4ae7f00fb95",
+      icon: "fas fa-gift",
+      title: "Successful Login From New IP",
+      content:
+        "The system has detected that your account is logged om from unused IP address.",
+      createdAt: "2021-03-05 02:44",
+      read: false,
+      route: "/"
+    },
+    {
+      id: "2a3848f5-8a4d-473a-b212-cb6b632e6c40",
+      icon: "fas fa-envelope",
+      title: "New device has been authorized",
+      content:
+        "You have successfully authorized a new device or in a new location to sign into Book store account.",
+      createdAt: "2021-02-09 21:52",
+      read: true,
+      route: "/"
+    }
   ]
 };

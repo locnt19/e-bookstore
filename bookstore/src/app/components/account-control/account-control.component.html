@@ -8,15 +8,38 @@
       <div class="account_notif__dot"></div>
     </div>
 
-    <div class="dropdown_menu z-50" [ngClass]="{ open: toggleNotifList }">
-      <div class="py-1" role="menu">
+    <div
+      class="dropdown_menu w-80 py-1 z-50"
+      [ngClass]="{ open: toggleNotifList }"
+    >
+      <div class="flex items-center justify-between p-4">
+        <div class="page_subtitle mb-0">Notifications</div>
+        <button class="button-base leading-1">
+          <i class="fas fa-check text-xs"></i>
+        </button>
+      </div>
+      <div role="menu">
         <a
-          *ngFor="let item of notifList"
-          class="dropdown_menu__item"
+          *ngFor="let item of notificationList"
+          class="dropdown_menu__item grid grid-cols-auto--1fr--auto gap-4"
           [routerLink]="item.route"
           role="menuitem"
-          >{{ item.title }}</a
         >
+          <i class="{{ item.icon }} text-2xl"></i>
+          <div>
+            <div class="font-semibold">{{ item.title }}</div>
+            <div class="text-sm line-clamp-2">
+              {{ item.content }}
+            </div>
+            <div class="text-sm mt-2">{{ item.createdAt }}</div>
+          </div>
+          <div>
+            <div *ngIf="!item.read" class="dot mt-2"></div>
+          </div>
+        </a>
+      </div>
+      <div class="px-4 py-2 text-center">
+        <a class="" [routerLink]="'/'">Read more</a>
       </div>
     </div>
   </section>

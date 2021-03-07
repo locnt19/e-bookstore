@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { CONFIG_DEFAULT } from "~/app/config-default";
 import { AccountControl } from "~/app/interfaces/account-control";
+import { Notification } from "~/app/interfaces/notification";
 import { UtilService } from "~/app/services/util.service";
 
 @Component({
@@ -10,7 +11,7 @@ import { UtilService } from "~/app/services/util.service";
 })
 export class AccountControlComponent implements OnInit {
   onSmallScreen: boolean;
-  notifList: Array<AccountControl>;
+  notificationList: Array<Notification>;
   controlList: Array<AccountControl>;
   togglecontrolList: boolean = false;
   toggleNotifList: boolean = false;
@@ -19,6 +20,7 @@ export class AccountControlComponent implements OnInit {
 
   ngOnInit(): void {
     this.onSmallScreen = this._util.onSmallScreen();
-    this.controlList = this.notifList = CONFIG_DEFAULT.accountControls;
+    this.controlList = CONFIG_DEFAULT.accountControls;
+    this.notificationList = CONFIG_DEFAULT.notification;
   }
 }
