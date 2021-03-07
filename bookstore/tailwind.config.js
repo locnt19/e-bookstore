@@ -42,6 +42,9 @@ module.exports = {
         8: "8",
         9: "9",
         10: "10"
+      },
+      lineHeight: {
+        1: "1"
       }
     }
   },
